@@ -5,6 +5,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 
 WorldInfo {
+  basicTimeStep 1
 }
 Viewpoint {
   orientation -0.25920233559665706 -0.06417797760130031 0.9636884021364193 3.6732414705823797
@@ -20,6 +21,10 @@ RectangleArena {
 Robot {
   translation 0 0 0.5
   children [
+    Accelerometer {
+    }
+    Gyro {
+    }
     Shape {
       appearance DEF base_link_material PBRAppearance {
         roughness 1
@@ -27,7 +32,7 @@ Robot {
       }
       geometry DEF base_link Mesh {
         url [
-          "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/base_link.STL"
+          "../protos/meshes/base_link.STL"
         ]
       }
     }
@@ -38,11 +43,11 @@ Robot {
       }
       device [
         RotationalMotor {
-          name "abad-L"
+          name "Roll-L"
           maxTorque 10000
         }
         PositionSensor {
-          name "abad-L_sensor"
+          name "Roll-L_sensor"
         }
       ]
       endPoint Solid {
@@ -56,7 +61,7 @@ Robot {
             }
             geometry DEF left-hip-abad Mesh {
               url [
-                "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-hip-abad.STL"
+                "../protos/meshes/left-hip-abad.STL"
               ]
             }
           }
@@ -84,7 +89,7 @@ Robot {
                   }
                   geometry DEF left-hip-yaw Mesh {
                     url [
-                      "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-hip-yaw.STL"
+                      "../protos/meshes/left-hip-yaw.STL"
                     ]
                   }
                 }
@@ -111,7 +116,7 @@ Robot {
                         }
                         geometry DEF left-hip-pitch Mesh {
                           url [
-                            "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-hip-pitch.STL"
+                            "../protos/meshes/left-hip-pitch.STL"
                           ]
                         }
                       }
@@ -140,7 +145,7 @@ Robot {
                               }
                               geometry DEF left-knee Mesh {
                                 url [
-                                  "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-knee.STL"
+                                  "../protos/meshes/left-knee.STL"
                                 ]
                               }
                             }
@@ -151,11 +156,11 @@ Robot {
                               }
                               device [
                                 RotationalMotor {
-                                  name "ankle-pitch-l"
+                                  name "Ankle-Pitch-L"
                                   maxTorque 10000
                                 }
                                 PositionSensor {
-                                  name "ankle-pitch-l_sensor"
+                                  name "Ankle-Pitch-L_sensor"
                                 }
                               ]
                               endPoint Solid {
@@ -169,7 +174,7 @@ Robot {
                                     }
                                     geometry DEF left-ankle-pitch Mesh {
                                       url [
-                                        "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-ankle-pitch.STL"
+                                        "../protos/meshes/left-ankle-pitch.STL"
                                       ]
                                     }
                                   }
@@ -178,11 +183,11 @@ Robot {
                                     }
                                     device [
                                       RotationalMotor {
-                                        name "ankle-abad-l"
+                                        name "Ankle-Roll-L"
                                         maxTorque 10000
                                       }
                                       PositionSensor {
-                                        name "ankle-abad-l_sensor"
+                                        name "Ankle-Roll-L_sensor"
                                       }
                                     ]
                                     endPoint Solid {
@@ -195,7 +200,7 @@ Robot {
                                           }
                                           geometry DEF left-ankle-abad Mesh {
                                             url [
-                                              "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-ankle-abad.STL"
+                                              "../protos/meshes/left-ankle-abad.STL"
                                             ]
                                           }
                                         }
@@ -302,11 +307,11 @@ Robot {
       }
       device [
         RotationalMotor {
-          name "abad-R"
+          name "Roll-R"
           maxTorque 10000
         }
         PositionSensor {
-          name "abad-R_sensor"
+          name "Roll-R_sensor"
         }
       ]
       endPoint Solid {
@@ -320,7 +325,7 @@ Robot {
             }
             geometry DEF right-hip-abad Mesh {
               url [
-                "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-hip-abad.STL"
+                "../protos/meshes/right-hip-abad.STL"
               ]
             }
           }
@@ -348,7 +353,7 @@ Robot {
                   }
                   geometry DEF right-hip-yaw Mesh {
                     url [
-                      "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-hip-yaw.STL"
+                      "../protos/meshes/right-hip-yaw.STL"
                     ]
                   }
                 }
@@ -375,7 +380,7 @@ Robot {
                         }
                         geometry DEF right-hip-pitch Mesh {
                           url [
-                            "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-hip-pitch.STL"
+                            "../protos/meshes/right-hip-pitch.STL"
                           ]
                         }
                       }
@@ -404,7 +409,7 @@ Robot {
                               }
                               geometry DEF right-knee Mesh {
                                 url [
-                                  "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-knee.STL"
+                                  "../protos/meshes/right-knee.STL"
                                 ]
                               }
                             }
@@ -415,11 +420,11 @@ Robot {
                               }
                               device [
                                 RotationalMotor {
-                                  name "ankle-pitch-r"
+                                  name "Ankle-Pitch-R"
                                   maxTorque 10000
                                 }
                                 PositionSensor {
-                                  name "ankle-pitch-r_sensor"
+                                  name "Ankle-Pitch-R_sensor"
                                 }
                               ]
                               endPoint Solid {
@@ -433,7 +438,7 @@ Robot {
                                     }
                                     geometry DEF right-ankle-pitch Mesh {
                                       url [
-                                        "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-ankle-pitch.STL"
+                                        "../protos/meshes/right-ankle-pitch.STL"
                                       ]
                                     }
                                   }
@@ -442,11 +447,11 @@ Robot {
                                     }
                                     device [
                                       RotationalMotor {
-                                        name "ankle-abad-r"
+                                        name "Ankle-Roll-R"
                                         maxTorque 10000
                                       }
                                       PositionSensor {
-                                        name "ankle-abad-r_sensor"
+                                        name "Ankle-Roll-R_sensor"
                                       }
                                     ]
                                     endPoint Solid {
@@ -459,7 +464,7 @@ Robot {
                                           }
                                           geometry DEF right-ankle-abad Mesh {
                                             url [
-                                              "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-ankle-abad.STL"
+                                              "../protos/meshes/right-ankle-abad.STL"
                                             ]
                                           }
                                         }
@@ -585,7 +590,7 @@ Robot {
             }
             geometry DEF left-arm-pitch Mesh {
               url [
-                "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-arm-pitch.STL"
+                "../protos/meshes/left-arm-pitch.STL"
               ]
             }
           }
@@ -596,11 +601,11 @@ Robot {
             }
             device [
               RotationalMotor {
-                name "arm-abad-l"
+                name "arm-roll-l"
                 maxTorque 10000
               }
               PositionSensor {
-                name "arm-abad-l_sensor"
+                name "arm-roll-l_sensor"
               }
             ]
             endPoint Solid {
@@ -614,7 +619,7 @@ Robot {
                   }
                   geometry DEF left-arm-abad Mesh {
                     url [
-                      "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-arm-abad.STL"
+                      "../protos/meshes/left-arm-abad.STL"
                     ]
                   }
                 }
@@ -625,11 +630,11 @@ Robot {
                   }
                   device [
                     RotationalMotor {
-                      name "hand-pitch-l"
+                      name "elbow-pitch-l"
                       maxTorque 10000
                     }
                     PositionSensor {
-                      name "hand-pitch-l_sensor"
+                      name "elbow-pitch-l_sensor"
                     }
                   ]
                   endPoint Solid {
@@ -643,7 +648,7 @@ Robot {
                         }
                         geometry DEF left-hand-pitch Mesh {
                           url [
-                            "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/left-hand-pitch.STL"
+                            "../protos/meshes/left-hand-pitch.STL"
                           ]
                         }
                       }
@@ -721,7 +726,7 @@ Robot {
             }
             geometry DEF right-arm-pitch Mesh {
               url [
-                "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-arm-pitch.STL"
+                "../protos/meshes/right-arm-pitch.STL"
               ]
             }
           }
@@ -732,11 +737,11 @@ Robot {
             }
             device [
               RotationalMotor {
-                name "arm-abad-r"
+                name "arm-roll-r"
                 maxTorque 10000
               }
               PositionSensor {
-                name "arm-abad-r_sensor"
+                name "arm-roll-r_sensor"
               }
             ]
             endPoint Solid {
@@ -750,7 +755,7 @@ Robot {
                   }
                   geometry DEF right-arm-abad Mesh {
                     url [
-                      "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-arm-abad.STL"
+                      "../protos/meshes/right-arm-abad.STL"
                     ]
                   }
                 }
@@ -761,11 +766,11 @@ Robot {
                   }
                   device [
                     RotationalMotor {
-                      name "hand-pitch-r"
+                      name "elbow-pitch-r"
                       maxTorque 10000
                     }
                     PositionSensor {
-                      name "hand-pitch-r_sensor"
+                      name "elbow-pitch-r_sensor"
                     }
                   ]
                   endPoint Solid {
@@ -779,7 +784,7 @@ Robot {
                         }
                         geometry DEF right-hand-pitch Mesh {
                           url [
-                            "/home/rocketsky/Program/RobotCode/humanoid_webots_sim/protos/meshes/right-hand-pitch.STL"
+                            "../protos/meshes/right-hand-pitch.STL"
                           ]
                         }
                       }
@@ -845,4 +850,5 @@ Robot {
       8.3173e-20 -0.00012787 -3.9247e-19
     ]
   }
+  controller "humanoid_controller"
 }

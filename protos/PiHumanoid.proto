@@ -26,45 +26,54 @@ PROTO PiHumanoid [
     synchronization IS synchronization
     selfCollision IS selfCollision
     children [
+      Accelerometer {
+      }
+      Gyro {
+      }
       Shape {
         appearance DEF base_link_material PBRAppearance {
-          roughness 1.000000
+          roughness 1
           metalness 0
         }
         geometry DEF base_link Mesh {
-          url "meshes/base_link.STL"
+          url [
+            "../protos/meshes/base_link.STL"
+          ]
         }
       }
       HingeJoint {
         jointParameters HingeJointParameters {
-          axis -1.000000 0.000000 0.000000
-          anchor 0.005000 0.075000 -0.160000
+          axis -1 0 0
+          anchor 0.005 0.075 -0.16
         }
         device [
           RotationalMotor {
-            name "abad-L"
+            name "Roll-L"
             maxTorque 10000
           }
           PositionSensor {
-            name "abad-L_sensor"
+            name "Roll-L_sensor"
           }
         ]
         endPoint Solid {
-          translation 0.005000 0.075000 -0.160000
+          translation 0.005 0.075 -0.16
+          rotation -1 0 0 0
           children [
             Shape {
               appearance DEF left-hip-abad_material PBRAppearance {
-                roughness 1.000000
+                roughness 1
                 metalness 0
               }
               geometry DEF left-hip-abad Mesh {
-                url "meshes/left-hip-abad.STL"
+                url [
+                  "../protos/meshes/left-hip-abad.STL"
+                ]
               }
             }
             HingeJoint {
               jointParameters HingeJointParameters {
-                axis 0.000000 0.000000 1.000000
-                anchor 0.049075 0.000000 -0.002000
+                axis 0 0 1
+                anchor 0.049075 0 -0.002
               }
               device [
                 RotationalMotor {
@@ -76,20 +85,22 @@ PROTO PiHumanoid [
                 }
               ]
               endPoint Solid {
-                translation 0.049075 0.000000 -0.002000
+                translation 0.049075 0 -0.002
                 children [
                   Shape {
                     appearance DEF left-hip-yaw_material PBRAppearance {
-                      roughness 1.000000
+                      roughness 1
                       metalness 0
                     }
                     geometry DEF left-hip-yaw Mesh {
-                      url "meshes/left-hip-yaw.STL"
+                      url [
+                        "../protos/meshes/left-hip-yaw.STL"
+                      ]
                     }
                   }
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      axis 0.000000 1.000000 0.000000
+                      axis 0 1 0
                     }
                     device [
                       RotationalMotor {
@@ -101,20 +112,23 @@ PROTO PiHumanoid [
                       }
                     ]
                     endPoint Solid {
+                      rotation 0 1 0 0
                       children [
                         Shape {
                           appearance DEF left-hip-pitch_material PBRAppearance {
-                            roughness 1.000000
+                            roughness 1
                             metalness 0
                           }
                           geometry DEF left-hip-pitch Mesh {
-                            url "meshes/left-hip-pitch.STL"
+                            url [
+                              "../protos/meshes/left-hip-pitch.STL"
+                            ]
                           }
                         }
                         HingeJoint {
                           jointParameters HingeJointParameters {
-                            axis 0.000000 -1.000000 0.000000
-                            anchor 0.004099 0.000000 -0.149944
+                            axis 0 -1 0
+                            anchor 0.004099 0 -0.149944
                           }
                           device [
                             RotationalMotor {
@@ -126,41 +140,47 @@ PROTO PiHumanoid [
                             }
                           ]
                           endPoint Solid {
-                            translation 0.004099 0.000000 -0.149944
+                            translation 0.004099 0 -0.149944
+                            rotation 0 -1 0 0
                             children [
                               Shape {
                                 appearance DEF left-knee_material PBRAppearance {
-                                  roughness 1.000000
+                                  roughness 1
                                   metalness 0
                                 }
                                 geometry DEF left-knee Mesh {
-                                  url "meshes/left-knee.STL"
+                                  url [
+                                    "../protos/meshes/left-knee.STL"
+                                  ]
                                 }
                               }
                               HingeJoint {
                                 jointParameters HingeJointParameters {
-                                  axis 0.000000 1.000000 0.000000
-                                  anchor 0.000000 0.000000 -0.160000
+                                  axis 0 1 0
+                                  anchor 0 0 -0.16
                                 }
                                 device [
                                   RotationalMotor {
-                                    name "ankle-pitch-l"
+                                    name "Ankle-Pitch-L"
                                     maxTorque 10000
                                   }
                                   PositionSensor {
-                                    name "ankle-pitch-l_sensor"
+                                    name "Ankle-Pitch-L_sensor"
                                   }
                                 ]
                                 endPoint Solid {
-                                  translation 0.000000 0.000000 -0.160000
+                                  translation 0 0 -0.16
+                                  rotation 0 1 0 0
                                   children [
                                     Shape {
                                       appearance DEF left-ankle-pitch_material PBRAppearance {
-                                        roughness 1.000000
+                                        roughness 1
                                         metalness 0
                                       }
                                       geometry DEF left-ankle-pitch Mesh {
-                                        url "meshes/left-ankle-pitch.STL"
+                                        url [
+                                          "../protos/meshes/left-ankle-pitch.STL"
+                                        ]
                                       }
                                     }
                                     HingeJoint {
@@ -168,22 +188,25 @@ PROTO PiHumanoid [
                                       }
                                       device [
                                         RotationalMotor {
-                                          name "ankle-abad-l"
+                                          name "Ankle-Roll-L"
                                           maxTorque 10000
                                         }
                                         PositionSensor {
-                                          name "ankle-abad-l_sensor"
+                                          name "Ankle-Roll-L_sensor"
                                         }
                                       ]
                                       endPoint Solid {
+                                        rotation 1 0 0 0
                                         children [
                                           Shape {
                                             appearance DEF left-ankle-abad_material PBRAppearance {
-                                              roughness 1.000000
+                                              roughness 1
                                               metalness 0
                                             }
                                             geometry DEF left-ankle-abad Mesh {
-                                              url "meshes/left-ankle-abad.STL"
+                                              url [
+                                                "../protos/meshes/left-ankle-abad.STL"
+                                              ]
                                             }
                                           }
                                         ]
@@ -191,11 +214,13 @@ PROTO PiHumanoid [
                                         boundingObject USE left-ankle-abad
                                         physics Physics {
                                           density -1
-                                          mass 0.150000
-                                          centerOfMass [ 0.014347 -0.000000 -0.015896 ]
+                                          mass 0.15
+                                          centerOfMass [
+                                            0.014347 0 -0.015896
+                                          ]
                                           inertiaMatrix [
-                                            1.298700e-05 5.925900e-05 7.081200e-05
-                                            1.664700e-10 3.298600e-08 2.217800e-11
+                                            1.2987e-05 5.9259e-05 7.0812e-05
+                                            1.6647e-10 3.2986e-08 2.2178e-11
                                           ]
                                         }
                                       }
@@ -205,11 +230,13 @@ PROTO PiHumanoid [
                                   boundingObject USE left-ankle-pitch
                                   physics Physics {
                                     density -1
-                                    mass 0.010000
-                                    centerOfMass [ 0.000000 -0.000001 -0.000000 ]
+                                    mass 0.01
+                                    centerOfMass [
+                                      0 -1e-06 0
+                                    ]
                                     inertiaMatrix [
-                                      7.067100e-08 4.663700e-08 5.822200e-08
-                                      -7.399000e-13 5.107900e-12 5.280000e-12
+                                      7.0671e-08 4.6637e-08 5.8222e-08
+                                      -7.399e-13 5.1079e-12 5.28e-12
                                     ]
                                   }
                                 }
@@ -219,11 +246,13 @@ PROTO PiHumanoid [
                             boundingObject USE left-knee
                             physics Physics {
                               density -1
-                              mass 0.600000
-                              centerOfMass [ 0.004168 0.000000 -0.070033 ]
+                              mass 0.6
+                              centerOfMass [
+                                0.004168 0 -0.070033
+                              ]
                               inertiaMatrix [
-                                5.509100e-05 5.532000e-05 4.392300e-05
-                                3.748700e-13 -1.746000e-07 1.288500e-12
+                                5.5091e-05 5.532e-05 4.3923e-05
+                                3.7487e-13 -1.746e-07 1.2885e-12
                               ]
                             }
                           }
@@ -233,11 +262,13 @@ PROTO PiHumanoid [
                       boundingObject USE left-hip-pitch
                       physics Physics {
                         density -1
-                        mass 0.200000
-                        centerOfMass [ 0.001754 0.000925 -0.064174 ]
+                        mass 0.2
+                        centerOfMass [
+                          0.001754 0.000925 -0.064174
+                        ]
                         inertiaMatrix [
-                          1.076100e-04 1.134400e-04 6.066500e-06
-                          -4.568600e-10 2.778000e-06 1.671100e-08
+                          0.00010761 0.00011344 6.0665e-06
+                          -4.5686e-10 2.778e-06 1.6711e-08
                         ]
                       }
                     }
@@ -247,11 +278,13 @@ PROTO PiHumanoid [
                 boundingObject USE left-hip-yaw
                 physics Physics {
                   density -1
-                  mass 0.640000
-                  centerOfMass [ -0.000510 -0.000000 0.003296 ]
+                  mass 0.64
+                  centerOfMass [
+                    -0.00051 0 0.003296
+                  ]
                   inertiaMatrix [
-                    6.735000e-05 6.798400e-05 6.734300e-05
-                    2.670100e-12 -8.282800e-07 -2.489000e-13
+                    6.735e-05 6.7984e-05 6.7343e-05
+                    2.6701e-12 -8.2828e-07 -2.489e-13
                   ]
                 }
               }
@@ -261,45 +294,50 @@ PROTO PiHumanoid [
           boundingObject USE left-hip-abad
           physics Physics {
             density -1
-            mass 0.360000
-            centerOfMass [ 0.042966 0.000000 0.057621 ]
+            mass 0.36
+            centerOfMass [
+              0.042966 0 0.057621
+            ]
             inertiaMatrix [
-              4.250300e-05 4.604900e-05 3.706700e-05
-              1.769100e-12 -4.009800e-06 8.918800e-12
+              4.2503e-05 4.6049e-05 3.7067e-05
+              1.7691e-12 -4.0098e-06 8.9188e-12
             ]
           }
         }
       }
       HingeJoint {
         jointParameters HingeJointParameters {
-          axis -1.000000 0.000000 0.000000
-          anchor 0.005000 -0.075000 -0.160000
+          axis -1 0 0
+          anchor 0.005 -0.075 -0.16
         }
         device [
           RotationalMotor {
-            name "abad-R"
+            name "Roll-R"
             maxTorque 10000
           }
           PositionSensor {
-            name "abad-R_sensor"
+            name "Roll-R_sensor"
           }
         ]
         endPoint Solid {
-          translation 0.005000 -0.075000 -0.160000
+          translation 0.005 -0.075 -0.16
+          rotation -1 0 0 0
           children [
             Shape {
               appearance DEF right-hip-abad_material PBRAppearance {
-                roughness 1.000000
+                roughness 1
                 metalness 0
               }
               geometry DEF right-hip-abad Mesh {
-                url "meshes/right-hip-abad.STL"
+                url [
+                  "../protos/meshes/right-hip-abad.STL"
+                ]
               }
             }
             HingeJoint {
               jointParameters HingeJointParameters {
-                axis 0.000000 0.000000 1.000000
-                anchor 0.049075 0.000000 -0.002000
+                axis 0 0 1
+                anchor 0.049075 0 -0.002
               }
               device [
                 RotationalMotor {
@@ -311,20 +349,22 @@ PROTO PiHumanoid [
                 }
               ]
               endPoint Solid {
-                translation 0.049075 0.000000 -0.002000
+                translation 0.049075 0 -0.002
                 children [
                   Shape {
                     appearance DEF right-hip-yaw_material PBRAppearance {
-                      roughness 1.000000
+                      roughness 1
                       metalness 0
                     }
                     geometry DEF right-hip-yaw Mesh {
-                      url "meshes/right-hip-yaw.STL"
+                      url [
+                        "../protos/meshes/right-hip-yaw.STL"
+                      ]
                     }
                   }
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      axis 0.000000 -1.000000 0.000000
+                      axis 0 -1 0
                     }
                     device [
                       RotationalMotor {
@@ -336,20 +376,23 @@ PROTO PiHumanoid [
                       }
                     ]
                     endPoint Solid {
+                      rotation 0 -1 0 0
                       children [
                         Shape {
                           appearance DEF right-hip-pitch_material PBRAppearance {
-                            roughness 1.000000
+                            roughness 1
                             metalness 0
                           }
                           geometry DEF right-hip-pitch Mesh {
-                            url "meshes/right-hip-pitch.STL"
+                            url [
+                              "../protos/meshes/right-hip-pitch.STL"
+                            ]
                           }
                         }
                         HingeJoint {
                           jointParameters HingeJointParameters {
-                            axis 0.000000 1.000000 0.000000
-                            anchor 0.004099 0.000000 -0.149944
+                            axis 0 1 0
+                            anchor 0.004099 0 -0.149944
                           }
                           device [
                             RotationalMotor {
@@ -361,41 +404,47 @@ PROTO PiHumanoid [
                             }
                           ]
                           endPoint Solid {
-                            translation 0.004099 0.000000 -0.149944
+                            translation 0.004099 0 -0.149944
+                            rotation 0 1 0 0
                             children [
                               Shape {
                                 appearance DEF right-knee_material PBRAppearance {
-                                  roughness 1.000000
+                                  roughness 1
                                   metalness 0
                                 }
                                 geometry DEF right-knee Mesh {
-                                  url "meshes/right-knee.STL"
+                                  url [
+                                    "../protos/meshes/right-knee.STL"
+                                  ]
                                 }
                               }
                               HingeJoint {
                                 jointParameters HingeJointParameters {
-                                  axis 0.000000 -1.000000 0.000000
-                                  anchor 0.000000 0.000000 -0.160000
+                                  axis 0 -1 0
+                                  anchor 0 0 -0.16
                                 }
                                 device [
                                   RotationalMotor {
-                                    name "ankle-pitch-r"
+                                    name "Ankle-Pitch-R"
                                     maxTorque 10000
                                   }
                                   PositionSensor {
-                                    name "ankle-pitch-r_sensor"
+                                    name "Ankle-Pitch-R_sensor"
                                   }
                                 ]
                                 endPoint Solid {
-                                  translation 0.000000 0.000000 -0.160000
+                                  translation 0 0 -0.16
+                                  rotation 0 -1 0 0
                                   children [
                                     Shape {
                                       appearance DEF right-ankle-pitch_material PBRAppearance {
-                                        roughness 1.000000
+                                        roughness 1
                                         metalness 0
                                       }
                                       geometry DEF right-ankle-pitch Mesh {
-                                        url "meshes/right-ankle-pitch.STL"
+                                        url [
+                                          "../protos/meshes/right-ankle-pitch.STL"
+                                        ]
                                       }
                                     }
                                     HingeJoint {
@@ -403,22 +452,25 @@ PROTO PiHumanoid [
                                       }
                                       device [
                                         RotationalMotor {
-                                          name "ankle-abad-r"
+                                          name "Ankle-Roll-R"
                                           maxTorque 10000
                                         }
                                         PositionSensor {
-                                          name "ankle-abad-r_sensor"
+                                          name "Ankle-Roll-R_sensor"
                                         }
                                       ]
                                       endPoint Solid {
+                                        rotation 1 0 0 0
                                         children [
                                           Shape {
                                             appearance DEF right-ankle-abad_material PBRAppearance {
-                                              roughness 1.000000
+                                              roughness 1
                                               metalness 0
                                             }
                                             geometry DEF right-ankle-abad Mesh {
-                                              url "meshes/right-ankle-abad.STL"
+                                              url [
+                                                "../protos/meshes/right-ankle-abad.STL"
+                                              ]
                                             }
                                           }
                                         ]
@@ -426,11 +478,13 @@ PROTO PiHumanoid [
                                         boundingObject USE right-ankle-abad
                                         physics Physics {
                                           density -1
-                                          mass 0.150000
-                                          centerOfMass [ 0.014347 -0.000000 -0.015896 ]
+                                          mass 0.15
+                                          centerOfMass [
+                                            0.014347 0 -0.015896
+                                          ]
                                           inertiaMatrix [
-                                            1.298700e-05 5.925900e-05 7.081200e-05
-                                            1.664700e-10 3.298600e-08 2.216900e-11
+                                            1.2987e-05 5.9259e-05 7.0812e-05
+                                            1.6647e-10 3.2986e-08 2.2169e-11
                                           ]
                                         }
                                       }
@@ -440,11 +494,13 @@ PROTO PiHumanoid [
                                   boundingObject USE right-ankle-pitch
                                   physics Physics {
                                     density -1
-                                    mass 0.010000
-                                    centerOfMass [ 0.000000 -0.000001 -0.000000 ]
+                                    mass 0.01
+                                    centerOfMass [
+                                      0 -1e-06 0
+                                    ]
                                     inertiaMatrix [
-                                      7.067100e-08 4.663700e-08 5.822200e-08
-                                      -7.399000e-13 5.107900e-12 5.280000e-12
+                                      7.0671e-08 4.6637e-08 5.8222e-08
+                                      -7.399e-13 5.1079e-12 5.28e-12
                                     ]
                                   }
                                 }
@@ -454,11 +510,13 @@ PROTO PiHumanoid [
                             boundingObject USE right-knee
                             physics Physics {
                               density -1
-                              mass 0.600000
-                              centerOfMass [ 0.004168 0.000000 -0.070033 ]
+                              mass 0.6
+                              centerOfMass [
+                                0.004168 0 -0.070033
+                              ]
                               inertiaMatrix [
-                                1.101800e-04 1.106400e-04 8.784500e-05
-                                -2.911300e-12 -3.492000e-07 3.558500e-12
+                                0.00011018 0.00011064 8.7845e-05
+                                -2.9113e-12 -3.492e-07 3.5585e-12
                               ]
                             }
                           }
@@ -468,11 +526,13 @@ PROTO PiHumanoid [
                       boundingObject USE right-hip-pitch
                       physics Physics {
                         density -1
-                        mass 0.200000
-                        centerOfMass [ 0.001754 -0.000925 -0.064174 ]
+                        mass 0.2
+                        centerOfMass [
+                          0.001754 -0.000925 -0.064174
+                        ]
                         inertiaMatrix [
-                          1.076100e-04 1.134400e-04 6.066500e-06
-                          4.568600e-10 2.778000e-06 -1.671100e-08
+                          0.00010761 0.00011344 6.0665e-06
+                          4.5686e-10 2.778e-06 -1.6711e-08
                         ]
                       }
                     }
@@ -482,11 +542,13 @@ PROTO PiHumanoid [
                 boundingObject USE right-hip-yaw
                 physics Physics {
                   density -1
-                  mass 0.640000
-                  centerOfMass [ -0.000510 -0.000000 0.003296 ]
+                  mass 0.64
+                  centerOfMass [
+                    -0.00051 0 0.003296
+                  ]
                   inertiaMatrix [
-                    6.735000e-05 6.798400e-05 6.734300e-05
-                    2.670100e-12 -8.282800e-07 -2.489000e-13
+                    6.735e-05 6.7984e-05 6.7343e-05
+                    2.6701e-12 -8.2828e-07 -2.489e-13
                   ]
                 }
               }
@@ -496,19 +558,21 @@ PROTO PiHumanoid [
           boundingObject USE right-hip-abad
           physics Physics {
             density -1
-            mass 0.360000
-            centerOfMass [ 0.042966 0.000000 0.057621 ]
+            mass 0.36
+            centerOfMass [
+              0.042966 0 0.057621
+            ]
             inertiaMatrix [
-              4.250300e-05 4.604900e-05 3.706700e-05
-              1.769100e-12 -4.009800e-06 8.918800e-12
+              4.2503e-05 4.6049e-05 3.7067e-05
+              1.7691e-12 -4.0098e-06 8.9188e-12
             ]
           }
         }
       }
       HingeJoint {
         jointParameters HingeJointParameters {
-          axis 0.000000 -1.000000 0.000000
-          anchor 0.034500 0.056500 0.068500
+          axis 0 -1 0
+          anchor 0.0345 0.0565 0.0685
         }
         device [
           RotationalMotor {
@@ -520,69 +584,77 @@ PROTO PiHumanoid [
           }
         ]
         endPoint Solid {
-          translation 0.034500 0.056500 0.068500
+          translation 0.0345 0.0565 0.0685
+          rotation 0 -1 0 0
           children [
             Shape {
               appearance DEF left-arm-pitch_material PBRAppearance {
-                baseColor 0.898040 0.917650 0.929410
-                roughness 1.000000
+                baseColor 0.89804 0.91765 0.92941
+                roughness 1
                 metalness 0
               }
               geometry DEF left-arm-pitch Mesh {
-                url "meshes/left-arm-pitch.STL"
+                url [
+                  "../protos/meshes/left-arm-pitch.STL"
+                ]
               }
             }
             HingeJoint {
               jointParameters HingeJointParameters {
-                axis -1.000000 0.000000 0.000000
-                anchor 0.020000 0.045000 0.000000
+                axis -1 0 0
+                anchor 0.02 0.045 0
               }
               device [
                 RotationalMotor {
-                  name "arm-abad-l"
+                  name "arm-roll-l"
                   maxTorque 10000
                 }
                 PositionSensor {
-                  name "arm-abad-l_sensor"
+                  name "arm-roll-l_sensor"
                 }
               ]
               endPoint Solid {
-                translation 0.020000 0.045000 0.000000
-                rotation 1.000000 0.000000 0.000000 0.261799
+                translation 0.02 0.045 0
+                rotation 1 0 0 0.2617989999999993
                 children [
                   Shape {
                     appearance DEF left-arm-abad_material PBRAppearance {
-                      roughness 1.000000
+                      roughness 1
                       metalness 0
                     }
                     geometry DEF left-arm-abad Mesh {
-                      url "meshes/left-arm-abad.STL"
+                      url [
+                        "../protos/meshes/left-arm-abad.STL"
+                      ]
                     }
                   }
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      axis 0.000000 1.000000 0.000000
-                      anchor -0.017620 0.014000 -0.119000
+                      axis 0 1 0
+                      anchor -0.01762 0.014 -0.119
                     }
                     device [
                       RotationalMotor {
-                        name "hand-pitch-l"
+                        name "elbow-pitch-l"
                         maxTorque 10000
                       }
                       PositionSensor {
-                        name "hand-pitch-l_sensor"
+                        name "elbow-pitch-l_sensor"
                       }
                     ]
                     endPoint Solid {
-                      translation -0.017620 0.014000 -0.119000
+                      translation -0.01762 0.014 -0.119
+                      rotation 0 1 0 0
                       children [
                         Shape {
                           appearance DEF left-hand-pitch_material PBRAppearance {
-                            roughness 1.000000
+                            roughness 1
                             metalness 0
                           }
                           geometry DEF left-hand-pitch Mesh {
-                            url "meshes/left-hand-pitch.STL"
+                            url [
+                              "../protos/meshes/left-hand-pitch.STL"
+                            ]
                           }
                         }
                       ]
@@ -590,11 +662,13 @@ PROTO PiHumanoid [
                       boundingObject USE left-hand-pitch
                       physics Physics {
                         density -1
-                        mass 0.045000
-                        centerOfMass [ 0.000000 -0.005837 -0.040292 ]
+                        mass 0.045
+                        centerOfMass [
+                          0 -0.005837 -0.040292
+                        ]
                         inertiaMatrix [
-                          8.453900e-06 8.485200e-06 1.822900e-06
-                          6.367900e-14 1.840900e-13 -8.685700e-07
+                          8.4539e-06 8.4852e-06 1.8229e-06
+                          6.3679e-14 1.8409e-13 -8.6857e-07
                         ]
                       }
                     }
@@ -604,11 +678,13 @@ PROTO PiHumanoid [
                 boundingObject USE left-arm-abad
                 physics Physics {
                   density -1
-                  mass 0.260000
-                  centerOfMass [ -0.015214 -0.005857 -0.096745 ]
+                  mass 0.26
+                  centerOfMass [
+                    -0.015214 -0.005857 -0.096745
+                  ]
                   inertiaMatrix [
-                    2.511600e-05 2.690100e-05 1.939500e-05
-                    -1.538700e-12 -1.544600e-06 7.728900e-07
+                    2.5116e-05 2.6901e-05 1.9395e-05
+                    -1.5387e-12 -1.5446e-06 7.7289e-07
                   ]
                 }
               }
@@ -618,19 +694,21 @@ PROTO PiHumanoid [
           boundingObject USE left-arm-pitch
           physics Physics {
             density -1
-            mass 0.215000
-            centerOfMass [ -0.001423 0.040089 0.000000 ]
+            mass 0.215
+            centerOfMass [
+              -0.001423 0.040089 0
+            ]
             inertiaMatrix [
-              8.100700e-05 5.399400e-05 8.517100e-05
-              5.034200e-06 3.393400e-21 -7.726100e-21
+              8.1007e-05 5.3994e-05 8.5171e-05
+              5.0342e-06 3.3934e-21 -7.7261e-21
             ]
           }
         }
       }
       HingeJoint {
         jointParameters HingeJointParameters {
-          axis 0.000000 1.000000 0.000000
-          anchor 0.034500 -0.056500 0.068500
+          axis 0 1 0
+          anchor 0.0345 -0.0565 0.0685
         }
         device [
           RotationalMotor {
@@ -642,69 +720,77 @@ PROTO PiHumanoid [
           }
         ]
         endPoint Solid {
-          translation 0.034500 -0.056500 0.068500
+          translation 0.0345 -0.0565 0.0685
+          rotation 0 1 0 0
           children [
             Shape {
               appearance DEF right-arm-pitch_material PBRAppearance {
-                baseColor 0.898040 0.917650 0.929410
-                roughness 1.000000
+                baseColor 0.89804 0.91765 0.92941
+                roughness 1
                 metalness 0
               }
               geometry DEF right-arm-pitch Mesh {
-                url "meshes/right-arm-pitch.STL"
+                url [
+                  "../protos/meshes/right-arm-pitch.STL"
+                ]
               }
             }
             HingeJoint {
               jointParameters HingeJointParameters {
-                axis -1.000000 0.000000 0.000000
-                anchor 0.020000 -0.045000 0.000000
+                axis -1 0 0
+                anchor 0.02 -0.045 0
               }
               device [
                 RotationalMotor {
-                  name "arm-abad-r"
+                  name "arm-roll-r"
                   maxTorque 10000
                 }
                 PositionSensor {
-                  name "arm-abad-r_sensor"
+                  name "arm-roll-r_sensor"
                 }
               ]
               endPoint Solid {
-                translation 0.020000 -0.045000 0.000000
-                rotation -1.000000 0.000000 0.000000 0.261799
+                translation 0.02 -0.045 0
+                rotation -1 0 0 0.2617989999999993
                 children [
                   Shape {
                     appearance DEF right-arm-abad_material PBRAppearance {
-                      roughness 1.000000
+                      roughness 1
                       metalness 0
                     }
                     geometry DEF right-arm-abad Mesh {
-                      url "meshes/right-arm-abad.STL"
+                      url [
+                        "../protos/meshes/right-arm-abad.STL"
+                      ]
                     }
                   }
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      axis 0.000000 -1.000000 0.000000
-                      anchor -0.017620 -0.014000 -0.119000
+                      axis 0 -1 0
+                      anchor -0.01762 -0.014 -0.119
                     }
                     device [
                       RotationalMotor {
-                        name "hand-pitch-r"
+                        name "elbow-pitch-r"
                         maxTorque 10000
                       }
                       PositionSensor {
-                        name "hand-pitch-r_sensor"
+                        name "elbow-pitch-r_sensor"
                       }
                     ]
                     endPoint Solid {
-                      translation -0.017620 -0.014000 -0.119000
+                      translation -0.01762 -0.014 -0.119
+                      rotation 0 -1 0 0
                       children [
                         Shape {
                           appearance DEF right-hand-pitch_material PBRAppearance {
-                            roughness 1.000000
+                            roughness 1
                             metalness 0
                           }
                           geometry DEF right-hand-pitch Mesh {
-                            url "meshes/right-hand-pitch.STL"
+                            url [
+                              "../protos/meshes/right-hand-pitch.STL"
+                            ]
                           }
                         }
                       ]
@@ -712,11 +798,13 @@ PROTO PiHumanoid [
                       boundingObject USE right-hand-pitch
                       physics Physics {
                         density -1
-                        mass 0.045000
-                        centerOfMass [ -0.000000 0.005837 -0.040292 ]
+                        mass 0.045
+                        centerOfMass [
+                          0 0.005837 -0.040292
+                        ]
                         inertiaMatrix [
-                          8.453900e-06 8.485200e-06 1.822900e-06
-                          6.367900e-14 -1.840900e-13 8.685700e-07
+                          8.4539e-06 8.4852e-06 1.8229e-06
+                          6.3679e-14 -1.8409e-13 8.6857e-07
                         ]
                       }
                     }
@@ -726,11 +814,13 @@ PROTO PiHumanoid [
                 boundingObject USE right-arm-abad
                 physics Physics {
                   density -1
-                  mass 0.260000
-                  centerOfMass [ -0.015214 0.005857 -0.096745 ]
+                  mass 0.26
+                  centerOfMass [
+                    -0.015214 0.005857 -0.096745
+                  ]
                   inertiaMatrix [
-                    2.511600e-05 2.690100e-05 1.939500e-05
-                    -1.533900e-12 -1.544600e-06 -7.728900e-07
+                    2.5116e-05 2.6901e-05 1.9395e-05
+                    -1.5339e-12 -1.5446e-06 -7.7289e-07
                   ]
                 }
               }
@@ -740,11 +830,13 @@ PROTO PiHumanoid [
           boundingObject USE right-arm-pitch
           physics Physics {
             density -1
-            mass 0.215000
-            centerOfMass [ -0.001423 -0.040089 0.000000 ]
+            mass 0.215
+            centerOfMass [
+              -0.001423 -0.040089 0
+            ]
             inertiaMatrix [
-              8.100700e-05 5.399400e-05 8.517100e-05
-              -5.034200e-06 -2.837000e-23 -1.015900e-20
+              8.1007e-05 5.3994e-05 8.5171e-05
+              -5.0342e-06 -2.837e-23 -1.0159e-20
             ]
           }
         }
